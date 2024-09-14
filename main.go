@@ -19,18 +19,18 @@ func main() {
 		panic(err)
 	}
 
-	for _, field := range doc.Catalog.AcroForm.Flatten() {
-		switch field.Field.FullFieldName() {
+	for _, form := range doc.Catalog.AcroForm.Flatten() {
+		switch form.Field.FullFieldName() {
 		case "field_1":
-			field.Field.FT = model.FormFieldText{
+			form.Field.FT = model.FormFieldText{
 				V: "Hello",
 			}
 		case "field_2":
-			field.Field.FT = model.FormFieldText{
+			form.Field.FT = model.FormFieldText{
 				V: "World",
 			}
 		}
-		field.Field.Ff |= model.ReadOnly
+		form.Field.Ff |= model.ReadOnly
 	}
 
 	// write the modified document to a new file
