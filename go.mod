@@ -1,6 +1,6 @@
 module pdftest
 
-go 1.23.1
+go 1.23.3
 
 require github.com/benoitkugler/pdf v0.0.14
 
